@@ -1,15 +1,15 @@
 # Welcome to My Website!
 
-Hi, I'm **ZhyKun**! 👋  
-This is my personal website hosted on GitHub Pages.
+Hi, I'm **ZhyKun0322**! 👋  
+This is my personal website hosted with GitHub Pages.
 
-🌟 You can visit it here: [My Website](https://your-new-username.github.io/)
+🌟 Visit it here: [My Website](https://zhykun0322.github.io/)
 
 ## About Me
-- 🎓 I love creating tutorials on YouTube.
-- 🎨 I'm interested in design and creativity.
-- 🚀 I'm building projects and improving every day!
+- 🎓 Learning to code and build websites
+- 🎨 Interested in design and creativity
+- 🚀 Always improving and creating new projects!
 
 ## How This Website Was Made
-- Using **HTML**.
-- Hosted for free on **GitHub Pages**.
+- Built with **HTML**
+- Hosted for free on **GitHub Pages**
