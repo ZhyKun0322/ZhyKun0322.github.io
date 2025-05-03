@@ -21,7 +21,7 @@ I'm a **Minecraft YouTuber** and a **TikTok streamer** who loves creating tutori
 
 ---
 Thanks for visiting! 🚀 Let's keep creating together!
-ome to My Website!
+come to My Website!
 
 Hi, I'm **ZhyKun0322**! 👋  
 This is my personal website hosted with GitHub Pages.
