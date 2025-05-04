@@ -3,65 +3,85 @@
 <head>
   <meta charset="UTF-8">
   <title>ZhyKun's Blog</title>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8122415925069057"
-     crossorigin="anonymous"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8122415925069057" crossorigin="anonymous"></script>
   <style>
     body {
+      background-color: #fffaf0;
       font-family: Arial, sans-serif;
+      color: #333;
       padding: 30px;
-      background-color: #f0f8ff;
-      text-align: center;
+      margin: 0;
     }
     h1 {
       color: #4CAF50;
+      text-align: center;
     }
-    .video-container {
+    .post {
       max-width: 800px;
-      margin: 40px auto;
-      background: #fff;
+      margin: 20px auto;
       padding: 20px;
+      background: #f9f9f9;
       border-radius: 10px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+    }
     .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
     }
     footer {
+      text-align: center;
       margin-top: 50px;
       padding: 20px;
-      background-color: #222;
+      background: #222;
       color: #eee;
+    }
+    footer a {
+      color: #00bfff;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <h1>Welcome to My Blog</h1>
 
-  <!-- Part 1 -->
-  <div class="video-container">
-    <h2>Part 1: Making a Farm and Base</h2>
-    <p>Long relaxing Minecraft gameplay session where I start building a farm and my base.</p>
-    <iframe src="https://www.youtube.com/embed/lOLAC0TKIyI" frameborder="0" allowfullscreen></iframe>
-  </div>
+  <h1>ZhyKun's Blog</h1>
 
-  <!-- Part 2 -->
-  <div class="video-container">
-    <h2>Part 2: Mining and Finishing My House</h2>
-    <p>I finished my house and went mining to get diamond gear and tools.</p>
-    <iframe src="https://www.youtube.com/embed/1_RT8birQFo" frameborder="0" allowfullscreen></iframe>
-  </div>
-
-  <!-- Part 3 -->
-  <div class="video-container">
+  <div class="post">
     <h2>Part 3: Moving a Villager and Building an Iron Golem Farm</h2>
-    <p>I moved a villager inside my cave and built an iron golem farm.</p>
-    <!-- Replace the link below with Part 3's YouTube embed once it's uploaded -->
-    <p><em>Part 3 video coming soon!</em></p>
+    <p>I finally moved a villager into my cave and set up an iron golem farm for unlimited iron!</p>
+
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/aVBeScpeEC8" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <div style="margin: 40px auto; text-align: center;">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-8122415925069057"
+         data-ad-slot="1064186108"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
   </div>
 
   <footer>
-    © 2025 ZhyKun | <a href="index.html" style="color:#00bfff;">Back to Home</a>
+    © 2025 ZhyKun | 
+    <a href="index.html">Back to Home</a>
   </footer>
+
 </body>
 </html>
