@@ -212,53 +212,59 @@
 
   <!-- Firebase SDK and GitHub Auth -->
   <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-app.js";
-    import { getAuth, GithubAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-auth.js";
+    window.addEventListener("DOMContentLoaded", () => {
+      console.log("DOM fully loaded and parsed.");
 
-    const firebaseConfig = {
-      apiKey: "AIzaSyAdM9xlsQ0UzWiFFnSC9eH1Gel8c8Pnmuo",
-      authDomain: "zhykun-website-ed7b0.firebaseapp.com",
-      projectId: "zhykun-website-ed7b0",
-      appId: "1:19884756069:web:8123336c2857c02d9459e0",
-      measurementId: "G-XTHX6VFS6Z",
-      databaseURL: "https://zhykun-website-ed7b0.firebaseio.com",
-    };
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-app.js";
+      import { getAuth, GithubAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-auth.js";
 
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
+      const firebaseConfig = {
+        apiKey: "AIzaSyAdM9xlsQ0UzWiFFnSC9eH1Gel8c8Pnmuo",
+        authDomain: "zhykun-website-ed7b0.firebaseapp.com",
+        projectId: "zhykun-website-ed7b0",
+        appId: "1:19884756069:web:8123336c2857c02d9459e0",
+        measurementId: "G-XTHX6VFS6Z",
+        databaseURL: "https://zhykun-website-ed7b0.firebaseio.com",
+      };
 
-    const loginBtn = document.getElementById("login-btn");
-    const logoutBtn = document.getElementById("logout-btn");
-    const userStatus = document.getElementById("user-status");
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
 
-    loginBtn.addEventListener("click", async () => {
-      const provider = new GithubAuthProvider();
-      try {
-        const result = await signInWithPopup(auth, provider);
-        const user = result.user;
-        userStatus.textContent = `Welcome, ${user.displayName}`;
-      } catch (error) {
-        console.error(error.message);
-        userStatus.textContent = 'Login failed, please try again.';
-      }
-    });
+      const loginBtn = document.getElementById("login-btn");
+      const logoutBtn = document.getElementById("logout-btn");
+      const userStatus = document.getElementById("user-status");
 
-    logoutBtn.addEventListener("click", async () => {
-      try {
-        await signOut(auth);
-        userStatus.textContent = 'You have logged out.';
-      } catch (error) {
-        console.error(error.message);
-        userStatus.textContent = 'Logout failed, please try again.';
-      }
-    });
+      loginBtn.addEventListener("click", async () => {
+        console.log("Login button clicked.");
+        const provider = new GithubAuthProvider();
+        try {
+          const result = await signInWithPopup(auth, provider);
+          const user = result.user;
+          userStatus.textContent = `Welcome, ${user.displayName}`;
+        } catch (error) {
+          console.error(error.message);
+          userStatus.textContent = 'Login failed, please try again.';
+        }
+      });
 
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        userStatus.textContent = `Welcome, ${user.displayName}`;
-      } else {
-        userStatus.textContent = 'You are not logged in.';
-      }
+      logoutBtn.addEventListener("click", async () => {
+        console.log("Logout button clicked.");
+        try {
+          await signOut(auth);
+          userStatus.textContent = 'You have logged out.';
+        } catch (error) {
+          console.error(error.message);
+          userStatus.textContent = 'Logout failed, please try again.';
+        }
+      });
+
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          userStatus.textContent = `Welcome, ${user.displayName}`;
+        } else {
+          userStatus.textContent = 'You are not logged in.';
+        }
+      });
     });
   </script>
 </body>
