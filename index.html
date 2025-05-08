@@ -215,8 +215,9 @@
     window.addEventListener("DOMContentLoaded", () => {
       console.log("DOM fully loaded and parsed.");
 
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-app.js";
-      import { getAuth, GithubAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-auth.js";
+      // Firebase imports with updated version
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+      import { getAuth, GithubAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
 
       const firebaseConfig = {
         apiKey: "AIzaSyAdM9xlsQ0UzWiFFnSC9eH1Gel8c8Pnmuo",
@@ -234,6 +235,7 @@
       const logoutBtn = document.getElementById("logout-btn");
       const userStatus = document.getElementById("user-status");
 
+      // Login button event listener
       loginBtn.addEventListener("click", async () => {
         console.log("Login button clicked.");
         const provider = new GithubAuthProvider();
@@ -247,6 +249,7 @@
         }
       });
 
+      // Logout button event listener
       logoutBtn.addEventListener("click", async () => {
         console.log("Logout button clicked.");
         try {
@@ -258,6 +261,7 @@
         }
       });
 
+      // Auth state change listener
       onAuthStateChanged(auth, (user) => {
         if (user) {
           userStatus.textContent = `Welcome, ${user.displayName}`;
