@@ -9,56 +9,7 @@
     crossorigin="anonymous"></script>
 
   <style>
-    body {
-      background-color: #f0f8ff;
-      font-family: Arial, sans-serif;
-      color: #333;
-      text-align: center;
-      padding: 50px;
-      margin: 0;
-    }
-    h1 {
-      font-size: 2.5rem;
-      color: #4CAF50;
-    }
-    p {
-      font-size: 1.2rem;
-      margin-bottom: 30px;
-    }
-    a.button {
-      display: inline-block;
-      margin: 10px;
-      padding: 12px 25px;
-      background: #4CAF50;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      font-size: 1rem;
-      transition: background 0.3s;
-    }
-    a.button:hover {
-      background: #45a049;
-    }
-    .top-right-buttons {
-      position: fixed;
-      top: 18px;
-      right: 18px;
-      z-index: 9999;
-      display: flex;
-      gap: 10px;
-    }
-    .top-right-buttons a {
-      background: #4CAF50;
-      color: white;
-      padding: 10px 18px;
-      border-radius: 8px;
-      font-size: 0.95rem;
-      text-decoration: none;
-      transition: background 0.3s;
-    }
-    .top-right-buttons a:hover {
-      background: #45a049;
-    }
+    /* Add your other styles here */
     .top-left-login {
       position: fixed;
       top: 18px;
@@ -88,127 +39,18 @@
       font-weight: bold;
       margin-top: 4px;
     }
-    .video-container {
-      max-width: 800px;
-      margin: 20px auto;
-      background: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    .video-container iframe {
-      width: 100%;
-      height: 100%;
-    }
-    footer {
-      width: 100%;
-      background-color: #222;
-      color: #eee;
-      padding: 20px 0;
-      text-align: center;
-      font-size: 14px;
-      margin-top: 50px;
-    }
-    footer a {
-      color: #00bfff;
-      text-decoration: none;
-    }
-    footer a:hover {
-      text-decoration: underline;
-    }
   </style>
 </head>
 <body>
 
-  <!-- Top-left login buttons -->
+  <!-- Login/Logout buttons -->
   <div class="top-left-login">
     <button id="login-btn">🔐 Login</button>
-    <button id="logout-btn">🚪 Logout</button>
-    <div id="user-status"></div>
+    <button id="logout-btn" style="display: none;">🚪 Logout</button>
+    <div id="user-status">You are not logged in.</div>
   </div>
 
-  <!-- Top-right buttons -->
-  <div class="top-right-buttons">
-    <a href="https://buymeacoffee.com/zhykun" target="_blank">☕ Buy Me a Coffee</a>
-    <a href="store.html">🛒 Visit the Shop</a>
-  </div>
-
-  <h1> Welcome to ZhyKun's Website! </h1>
-  <p>Hi! I'm ZhyKun. I post Minecraft tutorials on YouTube and stream live on TikTok!</p>
-
-  <!-- Top Ad -->
-  <div style="margin: 20px 0;">
-    <ins class="adsbygoogle"
-      style="display:block;"
-      data-ad-client="ca-pub-8122415925069057"
-      data-ad-slot="1064186108"
-      data-ad-format="auto"
-      data-full-width-responsive="true"></ins>
-    <script>
-      (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-  </div>
-
-  <!-- Buttons -->
-  <a class="button" href="https://youtube.com/@zhy_kun" target="_blank">Visit my YouTube 📺</a>
-  <a class="button" href="https://www.tiktok.com/@zhy_kun" target="_blank">Watch me on TikTok 🎥</a>
-  <br><br>
-  <a class="button" href="blog.html">📝 Read My Blog</a>
-
-  <!-- Video Section -->
-  <section id="videos">
-    <h2 style="text-align: center; color: #333;">My YouTube Videos</h2>
-
-    <div class="video-container">
-      <h3>Part 1: Long relaxing gameplay | making a farm and base</h3>
-      <p>Peaceful Minecraft session where I start building a farm and my base.</p>
-      <div style="position: relative; padding-bottom: 56.25%; height: 0;">
-        <iframe src="https://www.youtube.com/embed/lOLAC0TKIyI"
-                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
-                frameborder="0" allowfullscreen></iframe>
-      </div>
-    </div>
-
-    <div class="video-container">
-      <h3>Part 2: Finished my house and started mining</h3>
-      <p>Got diamond gear and tools, and finished building my house.</p>
-      <div style="position: relative; padding-bottom: 56.25%; height: 0;">
-        <iframe src="https://www.youtube.com/embed/1_RT8birQFo"
-                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
-                frameborder="0" allowfullscreen></iframe>
-      </div>
-    </div>
-
-    <div class="video-container">
-      <h3>Part 3: Moved a villager and built an Iron Golem farm</h3>
-      <p>My new base is more alive now that a villager has moved in! Also, iron supply secured 🔨.</p>
-      <div style="position: relative; padding-bottom: 56.25%; height: 0;">
-        <iframe src="https://www.youtube.com/embed/aVBeScpeEC8"
-                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
-                frameborder="0" allowfullscreen></iframe>
-      </div>
-    </div>
-  </section>
-
-  <!-- Bottom Ad -->
-  <div style="margin: 40px 0;">
-    <ins class="adsbygoogle"
-      style="display:block;"
-      data-ad-client="ca-pub-8122415925069057"
-      data-ad-slot="1064186108"
-      data-ad-format="auto"
-      data-full-width-responsive="true"></ins>
-    <script>
-      (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-  </div>
-
-  <!-- Footer -->
-  <footer>
-    © 2025 ZhyKun | 
-    <a href="https://youtube.com/@zhy_kun" target="_blank">YouTube</a> | 
-    <a href="https://www.tiktok.com/@zhy_kun" target="_blank">TikTok</a>
-  </footer>
+  <!-- Add your content here -->
 
   <!-- Firebase SDK and GitHub Auth -->
   <script type="module">
@@ -243,6 +85,8 @@
           const result = await signInWithPopup(auth, provider);
           const user = result.user;
           userStatus.textContent = `Welcome, ${user.displayName}`;
+          loginBtn.style.display = 'none';
+          logoutBtn.style.display = 'inline-block';
         } catch (error) {
           console.error(error.message);
           userStatus.textContent = 'Login failed, please try again.';
@@ -255,6 +99,8 @@
         try {
           await signOut(auth);
           userStatus.textContent = 'You have logged out.';
+          loginBtn.style.display = 'inline-block';
+          logoutBtn.style.display = 'none';
         } catch (error) {
           console.error(error.message);
           userStatus.textContent = 'Logout failed, please try again.';
@@ -265,8 +111,12 @@
       onAuthStateChanged(auth, (user) => {
         if (user) {
           userStatus.textContent = `Welcome, ${user.displayName}`;
+          loginBtn.style.display = 'none';
+          logoutBtn.style.display = 'inline-block';
         } else {
           userStatus.textContent = 'You are not logged in.';
+          loginBtn.style.display = 'inline-block';
+          logoutBtn.style.display = 'none';
         }
       });
     });
