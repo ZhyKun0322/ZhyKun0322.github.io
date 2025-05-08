@@ -13,63 +13,41 @@
       padding: 50px;
       margin: 0;
     }
-
     h1 {
       font-size: 2.5rem;
       color: #4CAF50;
     }
-
     p {
       font-size: 1.2rem;
       margin-bottom: 30px;
     }
-
-    /* Button Style */
-    .button {
+    a.button {
       display: inline-block;
       margin: 10px;
       padding: 12px 25px;
-      background-color: #4CAF50; /* Green background for better visibility */
-      color: white; /* White text for contrast */
-      text-decoration: none;
-      border-radius: 8px;
-      font-size: 1rem;
-      transition: background 0.3s;
-    }
-
-    .button:hover {
-      background-color: #45a049; /* Darker green on hover */
-    }
-
-    .button:active {
-      background-color: #388e3c; /* Even darker green when clicked */
-    }
-
-    /* Styling for the Floating Buttons */
-    .shop-btn {
-      position: fixed;
-      top: 70px;
-      right: 18px;
       background: #4CAF50;
       color: white;
-      padding: 12px 25px;
+      text-decoration: none;
       border-radius: 8px;
       font-size: 1rem;
-      text-decoration: none;
-      z-index: 9999;
       transition: background 0.3s;
     }
-
-    .shop-btn:hover {
+    a.button:hover {
       background: #45a049;
     }
 
-    /* Buy Me a Coffee Floating Button */
-    script[data-name="BMC-Widget"] {
-      position: fixed;
-      top: 0;
-      right: 0;
-      z-index: 9999;
+    .modpack-section {
+      padding: 30px;
+      background-color: #f4f4f4;
+      margin-top: 20px;
+    }
+    .modpack-container {
+      max-width: 800px;
+      margin: 20px auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
 
     footer {
@@ -91,32 +69,52 @@
       text-decoration: underline;
     }
 
+    /* Floating Buttons */
+    .floating-buttons {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 9999;
+    }
+    .floating-buttons a {
+      display: inline-block;
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 8px;
+      font-size: 1rem;
+      text-decoration: none;
+      margin-bottom: 10px;
+    }
+    .floating-buttons a:hover {
+      background-color: #45a049;
+    }
+
   </style>
 </head>
 <body>
 
-  <!-- Buy Me a Coffee Floating Button -->
-  <script data-name="BMC-Widget" data-cfasync="false"
-    src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
-    data-id="zhykun"
-    data-description="Support me on Buy Me a Coffee!"
-    data-message="Thank you for visiting!"
-    data-color="#4CAF50"
-    data-position="Right"
-    data-x_margin="18"
-    data-y_margin="18">
-  </script>
+  <!-- Floating Buttons -->
+  <div class="floating-buttons">
+    <a href="https://buymeacoffee.com/zhykun" target="_blank">☕ Buy Me a Coffee</a>
+    <a href="https://ko-fi.com/zhykun" target="_blank">☕ Support on Ko-Fi</a>
+  </div>
 
   <!-- Welcome Section -->
-  <h1>Welcome to ZhyKun's Store!</h1>
-  <p>Browse my Minecraft Modpack and support me!</p>
+  <h1>Welcome to ZhyKun's Store</h1>
+  <p>Thank you for visiting! Here you can get my custom Minecraft Zombie Apocalypse Modpack for just 49 PHP.</p>
 
-  <!-- Buttons -->
-  <a href="index.html" class="button">Home</a>
-  <a href="modpack.html" class="button">Modpack</a>
-
-  <!-- Floating "Visit the Shop" Button -->
-  <a href="store.html" class="shop-btn">🛒 Visit the Shop</a>
+  <!-- Modpack Section -->
+  <section class="modpack-section">
+    <h2>Zombie Apocalypse Modpack</h2>
+    <div class="modpack-container">
+      <p>Immerse yourself in a thrilling Zombie Apocalypse experience! The modpack includes enhanced survival mechanics, custom mobs, and unique challenges for the ultimate Minecraft zombie experience.</p>
+      <iframe src="https://www.youtube.com/embed/lOLAC0TKIyI" frameborder="0" allowfullscreen style="width:100%; height:400px;"></iframe>
+      <br><br>
+      <p><strong>Price: 49 PHP</strong></p>
+      <a href="https://example.com/download-modpack" class="button">Download Modpack</a>
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer>
