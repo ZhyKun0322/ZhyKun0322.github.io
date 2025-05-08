@@ -21,6 +21,40 @@
       font-size: 1.2rem;
       margin-bottom: 30px;
     }
+    /* Floating BuyMeACoffee Button */
+    .floating-btn {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background-color: #ffcc00;
+      padding: 15px 25px;
+      border-radius: 50px;
+      color: white;
+      font-size: 1.2rem;
+      text-decoration: none;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+      z-index: 9999;
+    }
+    .floating-btn:hover {
+      background-color: #e6b800;
+    }
+    .top-right {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 9999;
+    }
+    .top-right a {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 1.2rem;
+    }
+    .top-right a:hover {
+      background-color: #45a049;
+    }
     .top-left-login {
       position: fixed;
       top: 18px;
@@ -66,27 +100,14 @@
     footer a:hover {
       text-decoration: underline;
     }
-    .donation-btns {
-      margin: 20px 0;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-    }
-    .donation-btns a {
-      display: inline-block;
-      padding: 12px 20px;
-      background-color: #ffcc00;
-      border-radius: 8px;
-      color: white;
-      font-size: 1rem;
-      text-decoration: none;
-    }
-    .donation-btns a:hover {
-      background-color: #e6b800;
-    }
   </style>
 </head>
 <body>
+
+  <!-- Top-right Store Button -->
+  <div class="top-right">
+    <a href="store.html">Go to Store</a>
+  </div>
 
   <!-- Top-left login buttons -->
   <div class="top-left-login">
@@ -98,11 +119,29 @@
   <h1> Welcome to ZhyKun's Website! </h1>
   <p>Hi! I'm ZhyKun. I post Minecraft tutorials on YouTube and stream live on TikTok!</p>
 
-  <!-- Donation Buttons (BuyMeACoffee) -->
-  <div class="donation-btns">
-    <a href="https://www.buymeacoffee.com/zhykun" target="_blank">☕ Support me on BuyMeACoffee</a>
-    <a href="https://ko-fi.com/zhykun" target="_blank">💰 Donate on Ko-fi</a>
+  <!-- Videos Section -->
+  <h2>Latest Videos</h2>
+
+  <!-- Part 1 Video -->
+  <div>
+    <h3>Part 1: Long relaxing gameplay | Making a farm and base | Part 1</h3>
+    <iframe width="80%" height="400" src="https://www.youtube.com/embed/lOLAC0TKIyI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </div>
+
+  <!-- Part 2 Video -->
+  <div>
+    <h3>Part 2: 100 Days Challenge | House and Gear | Part 2</h3>
+    <iframe width="80%" height="400" src="https://www.youtube.com/embed/1_RT8birQFo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+
+  <!-- Part 3 Video -->
+  <div>
+    <h3>Part 3: Minecraft 100 days | Iron farm and trading hall | Part 3</h3>
+    <iframe width="80%" height="400" src="https://www.youtube.com/embed/aVBeScpeEC8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+
+  <!-- Floating BuyMeACoffee Button -->
+  <a href="https://www.buymeacoffee.com/zhykun" target="_blank" class="floating-btn">☕ Support me on BuyMeACoffee</a>
 
   <!-- Footer -->
   <footer>
