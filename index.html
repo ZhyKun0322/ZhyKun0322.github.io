@@ -216,42 +216,4 @@
     import { getAuth, GithubAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-auth.js";
 
     const firebaseConfig = {
-      apiKey: "AIzaSyAdM9xlsQ0UzWiFFnSC9eH1Gel8c8Pnmuo",
-      authDomain: "zhykun-website-ed7b0.firebaseapp.com",
-      projectId: "zhykun-website-ed7b0",
-      appId: "1:19884756069:web:8123336c26426b98d04a8c"
-    };
-
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
-    const provider = new GithubAuthProvider();
-
-    document.getElementById("login-btn").addEventListener("click", () => {
-      signInWithPopup(auth, provider)
-        .then((result) => {
-          alert(`Welcome, ${result.user.displayName}!`);
-        })
-        .catch((error) => {
-          alert("Login failed. Check the console.");
-          console.error(error);
-        });
-    });
-
-    document.getElementById("logout-btn").addEventListener("click", () => {
-      signOut(auth).then(() => {
-        alert("Logged out.");
-      });
-    });
-
-    onAuthStateChanged(auth, (user) => {
-      const userStatus = document.getElementById("user-status");
-      if (user) {
-        userStatus.textContent = `Logged in as ${user.displayName}`;
-      } else {
-        userStatus.textContent = "";
-      }
-    });
-  </script>
-
-</body>
-</html>
+      apiKey: "AIzaSyAdM9xlsQ0UzWiFFnSC
