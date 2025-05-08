@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>ZhyKun's Website</title>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8122415925069057" crossorigin="anonymous"></script>
+  <title>ZhyKun's Store</title>
 
   <style>
     body {
@@ -25,64 +24,80 @@
       margin-bottom: 30px;
     }
 
-    /* Button Container */
-    .button-container {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      z-index: 1000;
-    }
-
-    /* Button Styling */
+    /* Button Style */
     .button {
       display: inline-block;
-      margin: 15px;
-      padding: 15px 30px;  /* Increased padding */
-      background-color: #FF5733;  /* Bright orange color */
-      color: white;
+      margin: 10px;
+      padding: 12px 25px;
+      background-color: #4CAF50; /* Green background for better visibility */
+      color: white; /* White text for contrast */
       text-decoration: none;
       border-radius: 8px;
-      font-size: 1.5rem;  /* Larger font size */
-      font-weight: bold;
-      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);  /* Add text shadow for better readability */
-      transition: background-color 0.3s, transform 0.3s;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);  /* Add shadow for visibility */
+      font-size: 1rem;
+      transition: background 0.3s;
     }
 
     .button:hover {
-      background-color: #FF4500;  /* Darker on hover */
-      transform: scale(1.1);  /* Enlarge on hover */
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7);  /* Increase shadow */
+      background-color: #45a049; /* Darker green on hover */
     }
+
+    .button:active {
+      background-color: #388e3c; /* Even darker green when clicked */
+    }
+
+    /* Styling for the Floating Buttons */
+    .shop-btn {
+      position: fixed;
+      top: 70px;
+      right: 18px;
+      background: #4CAF50;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 8px;
+      font-size: 1rem;
+      text-decoration: none;
+      z-index: 9999;
+      transition: background 0.3s;
+    }
+
+    .shop-btn:hover {
+      background: #45a049;
+    }
+
+    /* Buy Me a Coffee Floating Button */
+    script[data-name="BMC-Widget"] {
+      position: fixed;
+      top: 0;
+      right: 0;
+      z-index: 9999;
+    }
+
   </style>
 </head>
 <body>
-  <!-- Floating Buttons for "Home" and "Modpack" -->
-  <div class="button-container">
-    <a href="home.html" class="button">Home</a>
-    <a href="modpack.html" class="button">Modpack</a>
-  </div>
 
-  <h1>Welcome to ZhyKun's Website!</h1>
-  <p>Hi! I'm ZhyKun. I post Minecraft tutorials on YouTube and stream live on TikTok!</p>
+  <!-- Buy Me a Coffee Floating Button -->
+  <script data-name="BMC-Widget" data-cfasync="false"
+    src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+    data-id="zhykun"
+    data-description="Support me on Buy Me a Coffee!"
+    data-message="Thank you for visiting!"
+    data-color="#4CAF50"
+    data-position="Right"
+    data-x_margin="18"
+    data-y_margin="18">
+  </script>
 
-  <div style="margin: 20px 0;">
-    <ins class="adsbygoogle"
-         style="display:block;"
-         data-ad-client="ca-pub-8122415925069057"
-         data-ad-slot="1064186108"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-  </div>
-  
-  <footer>
-    © 2025 ZhyKun | 
-    <a href="https://youtube.com/@zhy_kun" target="_blank">YouTube</a> | 
-    <a href="https://www.tiktok.com/@zhy_kun" target="_blank">TikTok</a>
-  </footer>
+  <!-- Welcome Section -->
+  <h1>Welcome to ZhyKun's Store!</h1>
+  <p>Browse my Minecraft Modpack and support me!</p>
+
+  <!-- Buttons -->
+  <a href="index.html" class="button">Home</a>
+  <a href="modpack.html" class="button">Modpack</a>
+
+  <!-- Floating "Visit the Shop" Button -->
+  <a href="store.html" class="shop-btn">🛒 Visit the Shop</a>
 
 </body>
 </html>
