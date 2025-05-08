@@ -76,19 +76,39 @@
       text-decoration: underline;
     }
 
-<!-- Buy Me a Coffee Floating Button (Corrected) -->
-<script data-name="BMC-Widget" data-cfasync="false"
-  src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
-  data-id="zhykun"
-  data-description="Support me on Buy Me a Coffee!"
-  data-message="Thank you for visiting!"
-  data-color="#4CAF50"
-  data-position="Right"
-  data-x_margin="18"
-  data-y_margin="18">
-</script>
+    /* Top-right button container */
+    .top-right-buttons {
+      position: fixed;
+      top: 18px;
+      right: 18px;
+      z-index: 9999;
+      display: flex;
+      gap: 10px;
+    }
 
-  
+    .top-right-buttons a {
+      background: #4CAF50;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .top-right-buttons a:hover {
+      background: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top-right buttons (Buy Me a Coffee and Visit the Shop) -->
+  <div class="top-right-buttons">
+    <a href="https://buymeacoffee.com/zhykun" target="_blank">☕ Buy Me a Coffee</a>
+    <a href="store.html">🛒 Visit the Shop</a>
+  </div>
+
   <!-- Welcome Section -->
   <h1> Welcome to ZhyKun's Website! </h1>
   <p>Hi! I'm ZhyKun. I post Minecraft tutorials on YouTube and stream live on TikTok!</p>
@@ -166,9 +186,6 @@
     <a href="https://youtube.com/@zhy_kun" target="_blank">YouTube</a> | 
     <a href="https://www.tiktok.com/@zhy_kun" target="_blank">TikTok</a>
   </footer>
-
-  <!-- Floating "Visit the Shop" Button -->
-  <a href="store.html" class="shop-btn">🛒 Visit the Shop</a>
 
 </body>
 </html>
