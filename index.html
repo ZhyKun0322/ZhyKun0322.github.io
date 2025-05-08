@@ -216,4 +216,50 @@
     import { getAuth, GithubAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-auth.js";
 
     const firebaseConfig = {
-      apiKey: "AIzaSyAdM9xlsQ0UzWiFFnSC
+      apiKey: "AIzaSyAdM9xlsQ0UzWiFFnSC9eH1Gel8c8Pnmuo",
+      authDomain: "zhykun-website-ed7b0.firebaseapp.com",
+      projectId: "zhykun-website-ed7b0",
+      appId: "1:19884756069:web:8123336c2857c02d9459e0",
+      measurementId: "G-XTHX6VFS6Z",
+      databaseURL: "https://zhykun-website-ed7b0.firebaseio.com",
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    const loginBtn = document.getElementById("login-btn");
+    const logoutBtn = document.getElementById("logout-btn");
+    const userStatus = document.getElementById("user-status");
+
+    loginBtn.addEventListener("click", async () => {
+      const provider = new GithubAuthProvider();
+      try {
+        const result = await signInWithPopup(auth, provider);
+        const user = result.user;
+        userStatus.textContent = `Welcome, ${user.displayName}`;
+      } catch (error) {
+        console.error(error.message);
+        userStatus.textContent = 'Login failed, please try again.';
+      }
+    });
+
+    logoutBtn.addEventListener("click", async () => {
+      try {
+        await signOut(auth);
+        userStatus.textContent = 'You have logged out.';
+      } catch (error) {
+        console.error(error.message);
+        userStatus.textContent = 'Logout failed, please try again.';
+      }
+    });
+
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        userStatus.textContent = `Welcome, ${user.displayName}`;
+      } else {
+        userStatus.textContent = 'You are not logged in.';
+      }
+    });
+  </script>
+</body>
+</html>
