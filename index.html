@@ -76,13 +76,6 @@
       text-decoration: underline;
     }
 
-<!-- Ko-fi Floating Button -->
-<script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script>
-<script type='text/javascript'>
-  kofiWidget2.init('Support Me on Ko-fi', '#4CAF50', 'zhykun');
-  kofiWidget2.draw();
-</script>
-
 <!-- Buy Me a Coffee Floating Button -->
 <script data-name="BMC-Widget" data-cfasync="false"
   src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
@@ -92,16 +85,16 @@
   data-color="#4CAF50"
   data-position="Right"
   data-x_margin="18"
-  data-y_margin="70">
+  data-y_margin="18">
 </script>
 
-<!-- Shop Button Floating Below the Coffee Buttons -->
-<a href="store.html" class="shop-btn">🛒 Visit the Shop</a>
+<!-- Floating Store Button -->
+<a href="store.html" class="store-btn">🛒 Visit the Store</a>
 
 <style>
-  .shop-btn {
+  .store-btn {
     position: fixed;
-    top: 140px; /* Positioned below the Ko-fi and BuyMeACoffee buttons */
+    top: 90px; /* below the Buy Me a Coffee widget */
     right: 18px;
     background: #4CAF50;
     color: white;
@@ -112,7 +105,7 @@
     z-index: 9999;
     transition: background 0.3s;
   }
-  .shop-btn:hover {
+  .store-btn:hover {
     background: #45a049;
   }
 </style>
