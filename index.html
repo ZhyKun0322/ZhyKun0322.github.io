@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>ZhyKun's Website</title>
+
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8122415925069057"
+    crossorigin="anonymous"></script>
 
   <style>
     body {
@@ -17,7 +21,11 @@
       font-size: 2.5rem;
       color: #4CAF50;
     }
-    .button {
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+    a.button {
       display: inline-block;
       margin: 10px;
       padding: 12px 25px;
@@ -28,7 +36,27 @@
       font-size: 1rem;
       transition: background 0.3s;
     }
-    .button:hover {
+    a.button:hover {
+      background: #45a049;
+    }
+    .top-right-buttons {
+      position: fixed;
+      top: 18px;
+      right: 18px;
+      z-index: 9999;
+      display: flex;
+      gap: 10px;
+    }
+    .top-right-buttons a {
+      background: #4CAF50;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    .top-right-buttons a:hover {
       background: #45a049;
     }
     .top-left-login {
@@ -48,104 +76,195 @@
       font-size: 0.9rem;
       cursor: pointer;
     }
-    #login-btn { background: #4CAF50; color: white; }
-    #logout-btn { background: #f44336; color: white; }
-    #user-info {
-      display: flex;
-      align-items: center;
-      margin-top: 5px;
+    #login-btn {
+      background: #4CAF50;
+      color: white;
     }
-    #user-avatar {
-      border-radius: 50%;
-      width: 30px;
-      height: 30px;
-      margin-right: 8px;
+    #logout-btn {
+      background: #f44336;
+      color: white;
     }
-    #download-section {
-      margin-top: 30px;
-      display: none;
+    #user-status {
+      font-weight: bold;
+      margin-top: 4px;
+    }
+    .video-container {
+      max-width: 800px;
+      margin: 20px auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .video-container iframe {
+      width: 100%;
+      height: 100%;
+    }
+    footer {
+      width: 100%;
+      background-color: #222;
+      color: #eee;
+      padding: 20px 0;
+      text-align: center;
+      font-size: 14px;
+      margin-top: 50px;
+    }
+    footer a {
+      color: #00bfff;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
 
+  <!-- Top-left login buttons -->
   <div class="top-left-login">
-    <button id="login-btn">🔐 Login with GitHub</button>
+    <button id="login-btn">🔐 Login</button>
     <button id="logout-btn">🚪 Logout</button>
-    <div id="user-info">
-      <img id="user-avatar" src="" alt="" style="display:none;">
-      <span id="user-name"></span>
+    <div id="user-status"></div>
+  </div>
+
+  <!-- Top-right buttons -->
+  <div class="top-right-buttons">
+    <a href="https://buymeacoffee.com/zhykun" target="_blank">☕ Buy Me a Coffee</a>
+    <a href="store.html">🛒 Visit the Shop</a>
+  </div>
+
+  <h1> Welcome to ZhyKun's Website! </h1>
+  <p>Hi! I'm ZhyKun. I post Minecraft tutorials on YouTube and stream live on TikTok!</p>
+
+  <!-- Top Ad -->
+  <div style="margin: 20px 0;">
+    <ins class="adsbygoogle"
+      style="display:block;"
+      data-ad-client="ca-pub-8122415925069057"
+      data-ad-slot="1064186108"
+      data-ad-format="auto"
+      data-full-width-responsive="true"></ins>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
+  <!-- Buttons -->
+  <a class="button" href="https://youtube.com/@zhy_kun" target="_blank">Visit my YouTube 📺</a>
+  <a class="button" href="https://www.tiktok.com/@zhy_kun" target="_blank">Watch me on TikTok 🎥</a>
+  <br><br>
+  <a class="button" href="blog.html">📝 Read My Blog</a>
+
+  <!-- Video Section -->
+  <section id="videos">
+    <h2 style="text-align: center; color: #333;">My YouTube Videos</h2>
+
+    <div class="video-container">
+      <h3>Part 1: Long relaxing gameplay | making a farm and base</h3>
+      <p>Peaceful Minecraft session where I start building a farm and my base.</p>
+      <div style="position: relative; padding-bottom: 56.25%; height: 0;">
+        <iframe src="https://www.youtube.com/embed/lOLAC0TKIyI"
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                frameborder="0" allowfullscreen></iframe>
+      </div>
     </div>
+
+    <div class="video-container">
+      <h3>Part 2: Finished my house and started mining</h3>
+      <p>Got diamond gear and tools, and finished building my house.</p>
+      <div style="position: relative; padding-bottom: 56.25%; height: 0;">
+        <iframe src="https://www.youtube.com/embed/1_RT8birQFo"
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <div class="video-container">
+      <h3>Part 3: Moved a villager and built an Iron Golem farm</h3>
+      <p>My new base is more alive now that a villager has moved in! Also, iron supply secured 🔨.</p>
+      <div style="position: relative; padding-bottom: 56.25%; height: 0;">
+        <iframe src="https://www.youtube.com/embed/aVBeScpeEC8"
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottom Ad -->
+  <div style="margin: 40px 0;">
+    <ins class="adsbygoogle"
+      style="display:block;"
+      data-ad-client="ca-pub-8122415925069057"
+      data-ad-slot="1064186108"
+      data-ad-format="auto"
+      data-full-width-responsive="true"></ins>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
   </div>
 
-  <h1>Welcome to ZhyKun's Website!</h1>
-  <p>Watch Minecraft content, support me, and download exclusive modpacks!</p>
+  <!-- Footer -->
+  <footer>
+    © 2025 ZhyKun | 
+    <a href="https://youtube.com/@zhy_kun" target="_blank">YouTube</a> | 
+    <a href="https://www.tiktok.com/@zhy_kun" target="_blank">TikTok</a>
+  </footer>
 
-  <a class="button" href="https://youtube.com/@zhy_kun" target="_blank">📺 YouTube</a>
-  <a class="button" href="https://www.tiktok.com/@zhy_kun" target="_blank">🎥 TikTok</a>
-
-  <div id="download-section">
-    <a class="button" href="your-modpack.zip" download>🧟 Download Modpack</a>
-  </div>
-
-  <!-- Firebase Auth -->
+  <!-- Firebase SDK and GitHub Auth -->
   <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-app.js";
-    import {
-      getAuth,
-      GithubAuthProvider,
-      signInWithPopup,
-      signOut,
-      onAuthStateChanged
-    } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-auth.js";
+    window.addEventListener("DOMContentLoaded", () => {
+      console.log("DOM fully loaded and parsed.");
 
-    const firebaseConfig = {
-      apiKey: "AIzaSyAdM9xlsQ0UzWiFFnSC9eH1Gel8c8Pnmuo",
-      authDomain: "zhykun-website-ed7b0.firebaseapp.com",
-      projectId: "zhykun-website-ed7b0",
-      appId: "1:19884756069:web:8123336c2857c02d9459e0"
-    };
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-app.js";
+      import { getAuth, GithubAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-auth.js";
 
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
+      const firebaseConfig = {
+        apiKey: "AIzaSyAdM9xlsQ0UzWiFFnSC9eH1Gel8c8Pnmuo",
+        authDomain: "zhykun-website-ed7b0.firebaseapp.com",
+        projectId: "zhykun-website-ed7b0",
+        appId: "1:19884756069:web:8123336c2857c02d9459e0",
+        measurementId: "G-XTHX6VFS6Z",
+        databaseURL: "https://zhykun-website-ed7b0.firebaseio.com",
+      };
 
-    const loginBtn = document.getElementById("login-btn");
-    const logoutBtn = document.getElementById("logout-btn");
-    const userName = document.getElementById("user-name");
-    const userAvatar = document.getElementById("user-avatar");
-    const downloadSection = document.getElementById("download-section");
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
 
-    loginBtn.addEventListener("click", async () => {
-      const provider = new GithubAuthProvider();
-      try {
-        await signInWithPopup(auth, provider);
-      } catch (error) {
-        console.error("Login error:", error);
-        alert("Login failed: " + error.message);
-      }
-    });
+      const loginBtn = document.getElementById("login-btn");
+      const logoutBtn = document.getElementById("logout-btn");
+      const userStatus = document.getElementById("user-status");
 
-    logoutBtn.addEventListener("click", async () => {
-      try {
-        await signOut(auth);
-      } catch (error) {
-        console.error("Logout error:", error);
-        alert("Logout failed: " + error.message);
-      }
-    });
+      loginBtn.addEventListener("click", async () => {
+        console.log("Login button clicked.");
+        const provider = new GithubAuthProvider();
+        try {
+          const result = await signInWithPopup(auth, provider);
+          const user = result.user;
+          userStatus.textContent = `Welcome, ${user.displayName}`;
+        } catch (error) {
+          console.error(error.message);
+          userStatus.textContent = 'Login failed, please try again.';
+        }
+      });
 
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        userName.textContent = user.displayName || user.email;
-        userAvatar.src = user.photoURL;
-        userAvatar.style.display = "block";
-        downloadSection.style.display = "block";
-      } else {
-        userName.textContent = "";
-        userAvatar.src = "";
-        userAvatar.style.display = "none";
-        downloadSection.style.display = "none";
-      }
+      logoutBtn.addEventListener("click", async () => {
+        console.log("Logout button clicked.");
+        try {
+          await signOut(auth);
+          userStatus.textContent = 'You have logged out.';
+        } catch (error) {
+          console.error(error.message);
+          userStatus.textContent = 'Logout failed, please try again.';
+        }
+      });
+
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          userStatus.textContent = `Welcome, ${user.displayName}`;
+        } else {
+          userStatus.textContent = 'You are not logged in.';
+        }
+      });
     });
   </script>
 </body>
