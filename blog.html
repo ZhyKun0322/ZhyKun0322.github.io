@@ -1,83 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>ZhyKun's Blog</title>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8122415925069057" crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <title>ZhyKun's Website</title>
+
+  <!-- Google AdSense script -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8122415925069057"
+     crossorigin="anonymous"></script>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-auth.js"></script>
+
   <style>
     body {
+      background-color: #f0f8ff;
       font-family: Arial, sans-serif;
-      background-color: #f8f8f8;
-      margin: 0;
-      padding: 20px;
       color: #333;
-    }
-    h1, h2 {
       text-align: center;
+      padding: 50px;
+      margin: 0;
+    }
+    h1 {
+      font-size: 2.5rem;
       color: #4CAF50;
     }
-    .entry {
-      background: #fff;
-      padding: 20px;
-      margin: 30px auto;
-      border-radius: 10px;
-      max-width: 800px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
     }
-    iframe {
+    a.button {
+      display: inline-block;
+      margin: 10px;
+      padding: 12px 25px;
+      background: #4CAF50;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: background 0.3s;
+    }
+    a.button:hover {
+      background: #45a049;
+    }
+
+    footer {
       width: 100%;
-      height: 400px;
-      border: none;
-      margin-top: 10px;
+      background-color: #222;
+      color: #eee;
+      padding: 20px 0;
+      text-align: center;
+      font-size: 14px;
+      margin-top: 50px;
+    }
+
+    footer a {
+      color: #00bfff;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Top-right buttons */
+    .top-right-buttons {
+      position: fixed;
+      top: 18px;
+      right: 18px;
+      z-index: 9999;
+      display: flex;
+      gap: 10px;
+    }
+
+    .top-right-buttons a {
+      background: #4CAF50;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .top-right-buttons a:hover {
+      background: #45a049;
+    }
+
+    /* Login Button styles */
+    #google-login, #google-signout {
+      background: #4CAF50; /* Matches the website's theme color */
+      color: white;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: 1rem;
+      text-decoration: none;
+      cursor: pointer;
+      margin-bottom: 20px;
+      border: none; /* No border to keep it clean */
+      transition: background 0.3s;
+    }
+
+    #google-login:hover, #google-signout:hover {
+      background: #45a049; /* Darker shade on hover */
+    }
+
+    /* Center login button */
+    .login-container {
+      margin-top: 30px;
+      text-align: center;
     }
   </style>
 </head>
 <body>
 
-  <h1>ZhyKun's Minecraft Adventures Blog</h1>
-
-  <!-- Part 1 -->
-  <div class="entry">
-    <h2>Part 1: Relaxing Gameplay - Building a Farm and Base</h2>
-    <p>This is a peaceful Minecraft session where I started building a small farm and base. It’s the first part of my survival world journey!</p>
-    <iframe src="https://www.youtube.com/embed/lOLAC0TKIyI" allowfullscreen></iframe>
+  <!-- Top-right buttons -->
+  <div class="top-right-buttons">
+    <a href="https://buymeacoffee.com/zhykun" target="_blank">☕ Buy Me a Coffee</a>
+    <a href="store.html">🛒 Visit the Shop</a>
   </div>
 
-  <!-- Ad -->
-  <ins class="adsbygoogle" style="display:block; margin: 20px auto;" data-ad-client="ca-pub-8122415925069057" data-ad-slot="1064186108" data-ad-format="auto" data-full-width-responsive="true"></ins>
-  <script>
-       (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
-
-  <!-- Part 2 -->
-  <div class="entry">
-    <h2>Part 2: Mining and Finishing My House</h2>
-    <p>In this episode, I went mining to collect resources and finally finished building my house. We’re getting stronger now!</p>
-    <iframe src="https://www.youtube.com/embed/1_RT8birQFo" allowfullscreen></iframe>
+  <!-- Login Section -->
+  <div class="login-container">
+    <button id="google-login">Sign in with Google</button>
+    <button id="google-signout" style="display:none" onclick="signOut()">Sign out</button>
   </div>
 
-  <!-- Ad -->
-  <ins class="adsbygoogle" style="display:block; margin: 20px auto;" data-ad-client="ca-pub-8122415925069057" data-ad-slot="1064186108" data-ad-format="auto" data-full-width-responsive="true"></ins>
-  <script>
-       (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
+  <!-- Welcome Section -->
+  <h1> Welcome to ZhyKun's Website! </h1>
+  <p>Hi! I'm ZhyKun. I post Minecraft tutorials on YouTube and stream live on TikTok!</p>
 
-  <!-- Part 3 -->
-  <div class="entry">
-    <h2>Part 3: Moved a Villager and Built an Iron Golem Farm</h2>
-    <p>Big progress! I moved a villager into my cave and built my first iron golem farm. Now I have infinite iron!</p>
-    <iframe src="https://www.youtube.com/embed/aVBeScpeEC8" allowfullscreen></iframe>
-  </div>
-
-</body>
-</html>
-
- <!-- Footer -->
+  <!-- Footer -->
   <footer>
     © 2025 ZhyKun | 
     <a href="https://youtube.com/@zhy_kun" target="_blank">YouTube</a> | 
     <a href="https://www.tiktok.com/@zhy_kun" target="_blank">TikTok</a>
   </footer>
+
+  <!-- Firebase Authentication Script -->
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyAdM9xlsQ0UzWiFFnSC9eH1Gel8c8Pnmuo",
+      authDomain: "zhykun-website-ed7b0.firebaseapp.com",
+      projectId: "zhykun-website-ed7b0",
+      storageBucket: "zhykun-website-ed7b0.appspot.com",
+      messagingSenderId: "19884756069",
+      appId: "1:19884756069:web:8123336c26426b98d04a8c"
+    };
+
+    const app = firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const provider = new firebase.auth.GoogleAuthProvider();
+
+    function signInWithGoogle() {
+      auth.signInWithPopup(provider)
+        .then((result) => {
+          const user = result.user;
+          console.log('User signed in: ', user);
+          document.getElementById('google-signout').style.display = 'inline-block';
+          document.getElementById('google-login').style.display = 'none';
+        })
+        .catch((error) => {
+          console.log('Error during sign-in: ', error.message);
+        });
+    }
+
+    function signOut() {
+      firebase.auth().signOut()
+        .then(() => {
+          console.log('User signed out');
+          document.getElementById('google-signout').style.display = 'none';
+          document.getElementById('google-login').style.display = 'inline-block';
+        })
+        .catch((error) => {
+          console.error('Sign-out error: ', error);
+        });
+    }
+
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        console.log('Signed in as:', user.displayName);
+      } else {
+        console.log('No user signed in');
+      }
+    });
+
+    window.onload = function() {
+      const googleButton = document.getElementById('google-login');
+      googleButton.addEventListener('click', signInWithGoogle);
+    };
+  </script>
 
 </body>
 </html>
