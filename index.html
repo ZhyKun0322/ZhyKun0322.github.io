@@ -4,11 +4,93 @@
   <meta charset="UTF-8">
   <title>ZhyKun's Website</title>
 
-  <!-- Google AdSense script -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8122415925069057"
-     crossorigin="anonymous"></script>
+  <!-- Firebase and Firebase Authentication SDK -->
+  <script src="https://www.gstatic.com/firebasejs/11.7.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/11.7.1/firebase-auth.js"></script>
+
+  <script>
+    // Your Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyAdM9xlsQ0UzWiFFnSC9eH1Gel8c8Pnmuo",
+      authDomain: "zhykun-website-ed7b0.firebaseapp.com",
+      projectId: "zhykun-website-ed7b0",
+      storageBucket: "zhykun-website-ed7b0.firebasestorage.app",
+      messagingSenderId: "19884756069",
+      appId: "1:19884756069:web:8123336c26426b98d04a8c",
+      measurementId: "G-SGKCM5WJ8Z"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    // Get references to UI elements
+    const emailField = document.getElementById('email');
+    const passwordField = document.getElementById('password');
+    const loginButton = document.getElementById('login-button');
+    const registerButton = document.getElementById('register-button');
+    const userMessage = document.getElementById('user-message');
+    const logoutButton = document.getElementById('logout-button');
+
+    // Register new user
+    registerButton.addEventListener('click', function() {
+      const email = emailField.value;
+      const password = passwordField.value;
+      
+      firebase.auth().createUserWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+          const user = userCredential.user;
+          userMessage.innerText = 'Registration successful. Welcome, ' + user.email;
+        })
+        .catch((error) => {
+          const errorMessage = error.message;
+          userMessage.innerText = 'Error: ' + errorMessage;
+        });
+    });
+
+    // Log in an existing user
+    loginButton.addEventListener('click', function() {
+      const email = emailField.value;
+      const password = passwordField.value;
+      
+      firebase.auth().signInWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+          const user = userCredential.user;
+          userMessage.innerText = 'Logged in as ' + user.email;
+        })
+        .catch((error) => {
+          const errorMessage = error.message;
+          userMessage.innerText = 'Error: ' + errorMessage;
+        });
+    });
+
+    // Log out the user
+    logoutButton.addEventListener('click', function() {
+      firebase.auth().signOut()
+        .then(() => {
+          userMessage.innerText = 'Logged out successfully.';
+        })
+        .catch((error) => {
+          const errorMessage = error.message;
+          userMessage.innerText = 'Error: ' + errorMessage;
+        });
+    });
+
+    // Check if the user is already logged in
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        // User is signed in
+        userMessage.innerText = 'Welcome back, ' + user.email;
+        logoutButton.style.display = 'block';  // Show logout button
+      } else {
+        // No user is signed in
+        userMessage.innerText = 'Please log in or register.';
+        logoutButton.style.display = 'none';  // Hide logout button
+      }
+    });
+  </script>
 
   <style>
+    /* Basic styles */
     body {
       background-color: #f0f8ff;
       font-family: Arial, sans-serif;
@@ -17,15 +99,18 @@
       padding: 50px;
       margin: 0;
     }
+
     h1 {
       font-size: 2.5rem;
       color: #4CAF50;
     }
+
     p {
       font-size: 1.2rem;
       margin-bottom: 30px;
     }
-    a.button {
+
+    .button {
       display: inline-block;
       margin: 10px;
       padding: 12px 25px;
@@ -36,177 +121,77 @@
       font-size: 1rem;
       transition: background 0.3s;
     }
-    a.button:hover {
+
+    .button:hover {
       background: #45a049;
     }
 
-    #videos {
-      padding: 30px;
-      background-color: #f4f4f4;
-    }
-    .video-container {
-      max-width: 800px;
-      margin: 20px auto;
-      background: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    .video-container iframe {
-      width: 100%;
-      height: 100%;
+    /* Login and Registration form */
+    #login-form, #register-form {
+      margin-top: 20px;
     }
 
-    footer {
-      width: 100%;
-      background-color: #222;
-      color: #eee;
-      padding: 20px 0;
-      text-align: center;
-      font-size: 14px;
-      margin-top: 50px;
+    #user-message {
+      margin-top: 20px;
+      font-size: 1.2rem;
+      color: #333;
     }
 
-    footer a {
-      color: #00bfff;
-      text-decoration: none;
+    #logout-button {
+      display: none;
+      margin-top: 20px;
     }
 
-    footer a:hover {
-      text-decoration: underline;
+    #logout-button:hover {
+      background-color: #e74c3c;
     }
 
-    /* Top-right button container */
-    .top-right-buttons {
+    /* Position the login button at the top-left */
+    #login-button {
       position: fixed;
-      top: 18px;
-      right: 18px;
+      top: 20px;
+      left: 20px;
       z-index: 9999;
-      display: flex;
-      gap: 10px;
-    }
-
-    .top-right-buttons a {
-      background: #4CAF50;
-      color: white;
-      padding: 10px 18px;
-      border-radius: 8px;
-      font-size: 0.95rem;
-      text-decoration: none;
-      transition: background 0.3s;
-    }
-
-    .top-right-buttons a:hover {
-      background: #45a049;
     }
   </style>
 </head>
+
 <body>
 
-  <!-- Top-right buttons (Buy Me a Coffee and Visit the Shop) -->
-  <div class="top-right-buttons">
-    <a href="https://buymeacoffee.com/zhykun" target="_blank">☕ Buy Me a Coffee</a>
-    <a href="store.html">🛒 Visit the Shop</a>
-  </div>
+  <!-- Login Button at Top-Left -->
+  <button id="login-button" class="button">Login</button>
 
-  <!-- Welcome Section -->
+  <!-- Login/Register Section -->
   <h1> Welcome to ZhyKun's Website! </h1>
-  <p>Hi! I'm ZhyKun. I post Minecraft tutorials on YouTube and stream live on TikTok!</p>
+  <p> Hi! I'm ZhyKun. I post Minecraft tutorials on YouTube and stream live on TikTok!</p>
 
-  <!-- Top Ad -->
-  <div style="margin: 20px 0;">
-    <ins class="adsbygoogle"
-         style="display:block;"
-         data-ad-client="ca-pub-8122415925069057"
-         data-ad-slot="1064186108"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
+  <div id="login-form">
+    <input type="email" id="email" placeholder="Enter email" required>
+    <input type="password" id="password" placeholder="Enter password" required>
+    <button id="login-button" class="button">Login</button>
   </div>
 
-  <!-- Buttons -->
-  <a class="button" href="https://youtube.com/@zhy_kun" target="_blank">Visit my YouTube 📺</a>
-  <a class="button" href="https://www.tiktok.com/@zhy_kun" target="_blank">Watch me on TikTok 🎥</a>
-  <br><br>
-  <a class="button" href="blog.html">📝 Read My Blog</a>
-
-  <!-- Video Section -->
-  <section id="videos">
-    <h2 style="text-align: center; color: #333;">My YouTube Videos</h2>
-
-    <div class="video-container">
-      <h3>Part 1: Long relaxing gameplay | making a farm and base</h3>
-      <p>Peaceful Minecraft session where I start building a farm and my base.</p>
-      <div style="position: relative; padding-bottom: 56.25%; height: 0;">
-        <iframe src="https://www.youtube.com/embed/lOLAC0TKIyI"
-                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
-                frameborder="0" allowfullscreen></iframe>
-      </div>
-    </div>
-
-    <div class="video-container">
-      <h3>Part 2: Finished my house and started mining</h3>
-      <p>Got diamond gear and tools, and finished building my house.</p>
-      <div style="position: relative; padding-bottom: 56.25%; height: 0;">
-        <iframe src="https://www.youtube.com/embed/1_RT8birQFo"
-                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
-                frameborder="0" allowfullscreen></iframe>
-      </div>
-    </div>
-
-    <div class="video-container">
-      <h3>Part 3: Moved a villager and built an Iron Golem farm</h3>
-      <p>My new base is more alive now that a villager has moved in! Also, iron supply secured 🔨.</p>
-      <div style="position: relative; padding-bottom: 56.25%; height: 0;">
-        <iframe src="https://www.youtube.com/embed/aVBeScpeEC8"
-                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
-                frameborder="0" allowfullscreen></iframe>
-      </div>
-    </div>
-  </section>
-
-  <!-- Bottom Ad -->
-  <div style="margin: 40px 0;">
-    <ins class="adsbygoogle"
-         style="display:block;"
-         data-ad-client="ca-pub-8122415925069057"
-         data-ad-slot="1064186108"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
+  <div id="register-form">
+    <input type="email" id="email" placeholder="Enter email" required>
+    <input type="password" id="password" placeholder="Enter password" required>
+    <button id="register-button" class="button">Register</button>
   </div>
 
-  <!-- Footer -->
+  <p id="user-message"></p>
+
+  <!-- Logout Button -->
+  <button id="logout-button" class="button">Logout</button>
+
+  <!-- Other Content -->
+  <a href="store.html" class="button">🛒 Visit the Shop</a>
+  <a href="https://youtube.com/@zhy_kun" target="_blank" class="button">Visit my YouTube 📺</a>
+  <a href="https://www.tiktok.com/@zhy_kun" target="_blank" class="button">Watch me on TikTok 🎥</a>
+
   <footer>
     © 2025 ZhyKun | 
     <a href="https://youtube.com/@zhy_kun" target="_blank">YouTube</a> | 
     <a href="https://www.tiktok.com/@zhy_kun" target="_blank">TikTok</a>
   </footer>
 
-  <!-- Firebase Analytics Script -->
-  <script type="module">
-    // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-app.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-analytics.js";
-
-    // Your web app's Firebase configuration
-    const firebaseConfig = {
-      apiKey: "AIzaSyAdM9xlsQ0UzWiFFnSC9eH1Gel8c8Pnmuo",
-      authDomain: "zhykun-website-ed7b0.firebaseapp.com",
-      projectId: "zhykun-website-ed7b0",
-      storageBucket: "zhykun-website-ed7b0.firebasestorage.app",
-      messagingSenderId: "19884756069",
-      appId: "1:19884756069:web:8123336c26426b98d04a8c",
-      measurementId: "G-SGKCM5WJ8Z"  // Updated Measurement ID
-    };
-
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
-  </script>
 </body>
 </html>
