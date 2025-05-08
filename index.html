@@ -4,6 +4,10 @@
   <meta charset="UTF-8">
   <title>ZhyKun's Website</title>
 
+  <!-- Google AdSense Script -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8122415925069057"
+    crossorigin="anonymous"></script>
+
   <style>
     body {
       background-color: #f0f8ff;
@@ -21,7 +25,6 @@
       font-size: 1.2rem;
       margin-bottom: 30px;
     }
-    /* Floating BuyMeACoffee Button */
     .floating-btn {
       position: fixed;
       bottom: 20px;
@@ -119,6 +122,19 @@
   <h1> Welcome to ZhyKun's Website! </h1>
   <p>Hi! I'm ZhyKun. I post Minecraft tutorials on YouTube and stream live on TikTok!</p>
 
+  <!-- Ad after intro -->
+  <div style="margin: 20px 0;">
+    <ins class="adsbygoogle"
+      style="display:block"
+      data-ad-client="ca-pub-8122415925069057"
+      data-ad-slot="1064186108"
+      data-ad-format="auto"
+      data-full-width-responsive="true"></ins>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
   <!-- Videos Section -->
   <h2>Latest Videos</h2>
 
@@ -143,10 +159,23 @@
   <!-- Floating BuyMeACoffee Button -->
   <a href="https://www.buymeacoffee.com/zhykun" target="_blank" class="floating-btn">☕ Support me on BuyMeACoffee</a>
 
+  <!-- Ad before footer -->
+  <div style="margin: 40px 0;">
+    <ins class="adsbygoogle"
+      style="display:block"
+      data-ad-client="ca-pub-8122415925069057"
+      data-ad-slot="1064186108"
+      data-ad-format="auto"
+      data-full-width-responsive="true"></ins>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
   <!-- Footer -->
   <footer>
-    © 2025 ZhyKun | 
-    <a href="https://youtube.com/@zhy_kun" target="_blank">YouTube</a> | 
+    © 2025 ZhyKun |
+    <a href="https://youtube.com/@zhy_kun" target="_blank">YouTube</a> |
     <a href="https://www.tiktok.com/@zhy_kun" target="_blank">TikTok</a>
   </footer>
 
@@ -155,7 +184,6 @@
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-app.js";
     import { getAuth, GithubAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-auth.js";
 
-    // Firebase config
     const firebaseConfig = {
       apiKey: "AIzaSyAdM9xlsQ0UzWiFFnSC9eH1Gel8c8Pnmuo",
       authDomain: "zhykun-website-ed7b0.firebaseapp.com",
@@ -171,20 +199,18 @@
     const logoutBtn = document.getElementById("logout-btn");
     const userStatus = document.getElementById("user-status");
 
-    // Check if user is logged in on page load
     onAuthStateChanged(auth, (user) => {
       if (user) {
         userStatus.textContent = `Welcome, ${user.displayName}`;
-        loginBtn.style.display = 'none'; // Hide login button after successful login
-        logoutBtn.style.display = 'block'; // Show logout button
+        loginBtn.style.display = 'none';
+        logoutBtn.style.display = 'block';
       } else {
         userStatus.textContent = 'You are not logged in.';
-        loginBtn.style.display = 'block'; // Show login button
-        logoutBtn.style.display = 'none'; // Hide logout button
+        loginBtn.style.display = 'block';
+        logoutBtn.style.display = 'none';
       }
     });
 
-    // Login action
     loginBtn.addEventListener("click", async () => {
       const provider = new GithubAuthProvider();
       try {
@@ -197,7 +223,6 @@
       }
     });
 
-    // Logout action
     logoutBtn.addEventListener("click", async () => {
       try {
         await signOut(auth);
