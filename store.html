@@ -2,125 +2,102 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>ZhyKun's Store</title>
-
+  <title>ZhyKun's Modpack Store</title>
   <style>
     body {
-      background-color: #f0f8ff;
+      margin: 0;
       font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
       color: #333;
       text-align: center;
-      padding: 50px;
-      margin: 0;
     }
-    h1 {
-      font-size: 2.5rem;
-      color: #4CAF50;
+    header {
+      background-color: #4CAF50;
+      padding: 15px 0;
+      color: white;
+      font-size: 1.8rem;
     }
-    p {
-      font-size: 1.2rem;
-      margin-bottom: 30px;
+    nav {
+      position: absolute;
+      top: 10px;
+      right: 20px;
     }
-    a.button {
-      display: inline-block;
-      margin: 10px;
-      padding: 12px 25px;
-      background: #4CAF50;
+    nav a {
+      margin: 0 10px;
       color: white;
       text-decoration: none;
-      border-radius: 8px;
-      font-size: 1rem;
+      font-weight: bold;
+      background: rgba(0, 0, 0, 0.2);
+      padding: 8px 15px;
+      border-radius: 5px;
       transition: background 0.3s;
     }
-    a.button:hover {
-      background: #45a049;
-    }
-
-    .modpack-section {
-      padding: 30px;
-      background-color: #f4f4f4;
-      margin-top: 20px;
+    nav a:hover {
+      background: rgba(0, 0, 0, 0.4);
     }
     .modpack-container {
       max-width: 800px;
-      margin: 20px auto;
-      background: #fff;
+      margin: 50px auto;
       padding: 20px;
+      background-color: white;
       border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
-
-    footer {
+    .modpack-container img {
       width: 100%;
-      background-color: #222;
-      color: #eee;
-      padding: 20px 0;
-      text-align: center;
-      font-size: 14px;
-      margin-top: 50px;
+      border-radius: 10px;
     }
-
-    footer a {
-      color: #00bfff;
-      text-decoration: none;
+    .price {
+      font-size: 1.4rem;
+      margin: 20px 0;
+      color: #4CAF50;
     }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
-
-    /* Floating Buttons */
-    .floating-buttons {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      z-index: 9999;
-    }
-    .floating-buttons a {
+    .buy-button {
       display: inline-block;
       background-color: #4CAF50;
       color: white;
       padding: 12px 25px;
-      border-radius: 8px;
-      font-size: 1rem;
       text-decoration: none;
-      margin-bottom: 10px;
+      font-size: 1rem;
+      border-radius: 8px;
+      transition: background 0.3s;
     }
-    .floating-buttons a:hover {
+    .buy-button:hover {
       background-color: #45a049;
     }
-
+    footer {
+      background-color: #222;
+      color: #eee;
+      padding: 20px 0;
+      margin-top: 50px;
+    }
+    footer a {
+      color: #00bfff;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
 
-  <!-- Floating Buttons -->
-  <div class="floating-buttons">
-    <a href="https://buymeacoffee.com/zhykun" target="_blank">☕ Buy Me a Coffee</a>
-    <a href="https://ko-fi.com/zhykun" target="_blank">☕ Support on Ko-Fi</a>
+  <header>
+    ZhyKun's Store
+    <nav>
+      <a href="index.html">Home</a>
+    </nav>
+  </header>
+
+  <div class="modpack-container">
+    <h2>🧟 Zombie Apocalypse Modpack</h2>
+    <img src="https://www.minecraft-hosting.pro/files/packs/cursed-walking_2.webp" alt="Zombie Modpack">
+    <p class="price">Only ₱49</p>
+    <a href="https://buymeacoffee.com/zhykun" class="buy-button" target="_blank">Buy Now via BuyMeACoffee</a>
   </div>
 
-  <!-- Welcome Section -->
-  <h1>Welcome to ZhyKun's Store</h1>
-  <p>Thank you for visiting! Here you can get my custom Minecraft Zombie Apocalypse Modpack for just 49 PHP.</p>
-
-  <!-- Modpack Section -->
-  <section class="modpack-section">
-    <h2>Zombie Apocalypse Modpack</h2>
-    <div class="modpack-container">
-      <p>Immerse yourself in a thrilling Zombie Apocalypse experience! The modpack includes enhanced survival mechanics, custom mobs, and unique challenges for the ultimate Minecraft zombie experience.</p>
-      <iframe src="https://www.youtube.com/embed/lOLAC0TKIyI" frameborder="0" allowfullscreen style="width:100%; height:400px;"></iframe>
-      <br><br>
-      <p><strong>Price: 49 PHP</strong></p>
-      <a href="https://example.com/download-modpack" class="button">Download Modpack</a>
-    </div>
-  </section>
-
-  <!-- Footer -->
   <footer>
-    © 2025 ZhyKun | 
-    <a href="https://youtube.com/@zhy_kun" target="_blank">YouTube</a> | 
-    <a href="https://www.tiktok.com/@zhy_kun" target="_blank">TikTok</a>
+    © 2025 ZhyKun | <a href="https://zhykun0322.github.io">Main Website</a>
   </footer>
 
 </body>
