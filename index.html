@@ -9,7 +9,6 @@
     crossorigin="anonymous"></script>
 
   <style>
-    /* Add your other styles here */
     .top-left-login {
       position: fixed;
       top: 18px;
@@ -50,14 +49,12 @@
     <div id="user-status">You are not logged in.</div>
   </div>
 
-  <!-- Add your content here -->
-
   <!-- Firebase SDK and GitHub Auth -->
   <script type="module">
     window.addEventListener("DOMContentLoaded", () => {
       console.log("DOM fully loaded and parsed.");
 
-      // Firebase imports with updated version
+      // Firebase imports
       import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
       import { getAuth, GithubAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
 
@@ -70,6 +67,7 @@
         databaseURL: "https://zhykun-website-ed7b0.firebaseio.com",
       };
 
+      // Initialize Firebase
       const app = initializeApp(firebaseConfig);
       const auth = getAuth(app);
 
@@ -84,11 +82,12 @@
         try {
           const result = await signInWithPopup(auth, provider);
           const user = result.user;
+          console.log("User:", user); // Add this to log the user object
           userStatus.textContent = `Welcome, ${user.displayName}`;
           loginBtn.style.display = 'none';
           logoutBtn.style.display = 'inline-block';
         } catch (error) {
-          console.error(error.message);
+          console.error("Login failed:", error.message); // Better error logging
           userStatus.textContent = 'Login failed, please try again.';
         }
       });
@@ -102,7 +101,7 @@
           loginBtn.style.display = 'inline-block';
           logoutBtn.style.display = 'none';
         } catch (error) {
-          console.error(error.message);
+          console.error("Logout failed:", error.message); // Error logging for logout
           userStatus.textContent = 'Logout failed, please try again.';
         }
       });
@@ -110,6 +109,7 @@
       // Auth state change listener
       onAuthStateChanged(auth, (user) => {
         if (user) {
+          console.log("User logged in:", user); // Log user object when logged in
           userStatus.textContent = `Welcome, ${user.displayName}`;
           loginBtn.style.display = 'none';
           logoutBtn.style.display = 'inline-block';
