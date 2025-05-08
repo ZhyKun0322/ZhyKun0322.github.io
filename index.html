@@ -83,6 +83,25 @@
       right: 0;
       z-index: 9999;
     }
+
+    /* Shop Button Floating (Top-Right) */
+    .shop-btn {
+      position: fixed;
+      top: 70px; /* Adjust the distance from the top */
+      right: 18px;
+      background: #4CAF50;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 8px;
+      font-size: 1rem;
+      text-decoration: none;
+      z-index: 9999;
+      transition: background 0.3s;
+    }
+    .shop-btn:hover {
+      background: #45a049;
+    }
+
   </style>
 </head>
 <body>
@@ -176,6 +195,9 @@
     <a href="https://youtube.com/@zhy_kun" target="_blank">YouTube</a> | 
     <a href="https://www.tiktok.com/@zhy_kun" target="_blank">TikTok</a>
   </footer>
+
+  <!-- Floating "Visit the Shop" Button -->
+  <a href="store.html" class="shop-btn">🛒 Visit the Shop</a>
 
 </body>
 </html>
