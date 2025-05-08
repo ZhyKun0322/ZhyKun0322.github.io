@@ -187,5 +187,27 @@
     <a href="https://www.tiktok.com/@zhy_kun" target="_blank">TikTok</a>
   </footer>
 
+  <!-- Firebase SDK -->
+  <script type="module">
+    // Import Firebase modules
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-analytics.js";
+
+    // Your Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyAdM9xlsQ0UzWiFFnSC9eH1Gel8c8Pnmuo",
+      authDomain: "zhykun-website-ed7b0.firebaseapp.com",
+      projectId: "zhykun-website-ed7b0",
+      storageBucket: "zhykun-website-ed7b0.firebasestorage.app",
+      messagingSenderId: "19884756069",
+      appId: "1:19884756069:web:8123336c26426b98d04a8c",
+      measurementId: "G-SGKCM5WJ8Z"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
+
 </body>
 </html>
