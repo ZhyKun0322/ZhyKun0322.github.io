@@ -78,6 +78,35 @@
     footer a:hover {
       text-decoration: underline;
     }
+
+    /* Login box */
+    #store-login-area {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 9999;
+      text-align: left;
+    }
+    #store-login-btn, #store-logout-btn {
+      padding: 6px 12px;
+      border-radius: 6px;
+      border: none;
+      color: white;
+      margin-bottom: 5px;
+      cursor: pointer;
+    }
+    #store-login-btn {
+      background-color: #4CAF50;
+    }
+    #store-logout-btn {
+      background-color: #f44336;
+      display: none;
+    }
+    #store-user-status {
+      font-size: 14px;
+      font-weight: bold;
+      color: #333;
+    }
   </style>
 </head>
 <body>
@@ -99,6 +128,63 @@
   <footer>
     © 2025 ZhyKun | <a href="https://zhykun0322.github.io">Main Website</a>
   </footer>
+
+  <!-- Login UI -->
+  <div id="store-login-area">
+    <button id="store-login-btn">🔐 Login</button>
+    <button id="store-logout-btn">🚪 Logout</button>
+    <div id="store-user-status">Not logged in</div>
+  </div>
+
+  <!-- Firebase GitHub Login Script -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-app.js";
+    import { getAuth, GithubAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAdM9xlsQ0UzWiFFnSC9eH1Gel8c8Pnmuo",
+      authDomain: "zhykun-website-ed7b0.firebaseapp.com",
+      projectId: "zhykun-website-ed7b0",
+      appId: "1:19884756069:web:8123336c2857c02d9459e0",
+      measurementId: "G-XTHX6VFS6Z",
+      databaseURL: "https://zhykun-website-ed7b0.firebaseio.com",
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const loginBtn = document.getElementById("store-login-btn");
+    const logoutBtn = document.getElementById("store-logout-btn");
+    const userStatus = document.getElementById("store-user-status");
+
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        userStatus.textContent = `Welcome, ${user.displayName}`;
+        loginBtn.style.display = 'none';
+        logoutBtn.style.display = 'inline-block';
+      } else {
+        userStatus.textContent = 'Not logged in';
+        loginBtn.style.display = 'inline-block';
+        logoutBtn.style.display = 'none';
+      }
+    });
+
+    loginBtn.addEventListener("click", async () => {
+      const provider = new GithubAuthProvider();
+      try {
+        await signInWithPopup(auth, provider);
+      } catch (error) {
+        console.error("Login failed:", error.message);
+      }
+    });
+
+    logoutBtn.addEventListener("click", async () => {
+      try {
+        await signOut(auth);
+      } catch (error) {
+        console.error("Logout failed:", error.message);
+      }
+    });
+  </script>
 
 </body>
 </html>
