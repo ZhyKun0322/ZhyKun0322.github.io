@@ -76,48 +76,47 @@
       text-decoration: underline;
     }
 
-    /* Buy Me a Coffee Button (Top-Right Floating) */
-    script[data-name="BMC-Widget"] {
-      position: fixed;
-      top: 0;
-      right: 0;
-      z-index: 9999;
-    }
+<!-- Ko-fi Floating Button -->
+<script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script>
+<script type='text/javascript'>
+  kofiWidget2.init('Support Me on Ko-fi', '#4CAF50', 'zhykun');
+  kofiWidget2.draw();
+</script>
 
-    /* Shop Button Floating (Top-Right) */
-    .shop-btn {
-      position: fixed;
-      top: 70px; /* Adjust the distance from the top */
-      right: 18px;
-      background: #4CAF50;
-      color: white;
-      padding: 12px 25px;
-      border-radius: 8px;
-      font-size: 1rem;
-      text-decoration: none;
-      z-index: 9999;
-      transition: background 0.3s;
-    }
-    .shop-btn:hover {
-      background: #45a049;
-    }
+<!-- Buy Me a Coffee Floating Button -->
+<script data-name="BMC-Widget" data-cfasync="false"
+  src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+  data-id="ZhyKun"
+  data-description="Support me on Buy me a coffee!"
+  data-message="Thank you for visiting!"
+  data-color="#4CAF50"
+  data-position="Right"
+  data-x_margin="18"
+  data-y_margin="70">
+</script>
 
-  </style>
-</head>
-<body>
+<!-- Shop Button Floating Below the Coffee Buttons -->
+<a href="store.html" class="shop-btn">🛒 Visit the Shop</a>
 
-  <!-- Buy Me a Coffee Button (Top-Right Floating) -->
-  <script data-name="BMC-Widget" data-cfasync="false"
-    src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
-    data-id="ZhyKun"
-    data-description="Support me on Buy me a coffee!"
-    data-message="Thank you for visiting!"
-    data-color="#4CAF50"
-    data-position="Right"
-    data-x_margin="18"
-    data-y_margin="18">
-  </script>
-
+<style>
+  .shop-btn {
+    position: fixed;
+    top: 140px; /* Positioned below the Ko-fi and BuyMeACoffee buttons */
+    right: 18px;
+    background: #4CAF50;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-size: 1rem;
+    text-decoration: none;
+    z-index: 9999;
+    transition: background 0.3s;
+  }
+  .shop-btn:hover {
+    background: #45a049;
+  }
+</style>
+  
   <!-- Welcome Section -->
   <h1> Welcome to ZhyKun's Website! </h1>
   <p>Hi! I'm ZhyKun. I post Minecraft tutorials on YouTube and stream live on TikTok!</p>
