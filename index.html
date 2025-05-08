@@ -63,6 +63,7 @@
       text-decoration: underline;
     }
 
+    /* Top-right buttons */
     .top-right-buttons {
       position: fixed;
       top: 18px;
@@ -85,6 +86,30 @@
     .top-right-buttons a:hover {
       background: #45a049;
     }
+
+    /* Login Button styles */
+    #github-login, #github-signout {
+      background: #4CAF50; /* Matches the website's theme color */
+      color: white;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: 1rem;
+      text-decoration: none;
+      cursor: pointer;
+      margin-bottom: 20px;
+      border: none; /* No border to keep it clean */
+      transition: background 0.3s;
+    }
+
+    #github-login:hover, #github-signout:hover {
+      background: #45a049; /* Darker shade on hover */
+    }
+
+    /* Center login button */
+    .login-container {
+      margin-top: 30px;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
@@ -95,10 +120,13 @@
     <a href="store.html">🛒 Visit the Shop</a>
   </div>
 
-  <!-- Login Button -->
-  <button id="google-login">Sign in with Google</button>
-  <button onclick="signOut()">Sign out</button>
+  <!-- Login Section -->
+  <div class="login-container">
+    <button id="github-login">Sign in with GitHub</button>
+    <button id="github-signout" style="display:none" onclick="signOut()">Sign out</button>
+  </div>
 
+  <!-- Welcome Section -->
   <h1> Welcome to ZhyKun's Website! </h1>
   <p>Hi! I'm ZhyKun. I post Minecraft tutorials on YouTube and stream live on TikTok!</p>
 
@@ -122,13 +150,15 @@
 
     const app = firebase.initializeApp(firebaseConfig);
     const auth = firebase.auth();
-    const provider = new firebase.auth.GoogleAuthProvider();
+    const provider = new firebase.auth.GithubAuthProvider();
 
-    function signInWithGoogle() {
+    function signInWithGitHub() {
       auth.signInWithPopup(provider)
         .then((result) => {
           const user = result.user;
           console.log('User signed in: ', user);
+          document.getElementById('github-signout').style.display = 'inline-block';
+          document.getElementById('github-login').style.display = 'none';
         })
         .catch((error) => {
           console.log('Error during sign-in: ', error.message);
@@ -139,6 +169,8 @@
       firebase.auth().signOut()
         .then(() => {
           console.log('User signed out');
+          document.getElementById('github-signout').style.display = 'none';
+          document.getElementById('github-login').style.display = 'inline-block';
         })
         .catch((error) => {
           console.error('Sign-out error: ', error);
@@ -154,8 +186,8 @@
     });
 
     window.onload = function() {
-      const googleButton = document.getElementById('google-login');
-      googleButton.addEventListener('click', signInWithGoogle);
+      const githubButton = document.getElementById('github-login');
+      githubButton.addEventListener('click', signInWithGitHub);
     };
   </script>
 
