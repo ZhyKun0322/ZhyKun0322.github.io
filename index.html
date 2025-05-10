@@ -200,39 +200,77 @@
     const logoutBtn = document.getElementById("logout-btn");
     const userStatus = document.getElementById("user-status");
 
+    // Cookie functions
+    function setCookie(name, value, days) {
+      const date = new Date();
+      date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000)); // Set expiry time
+      const expires = "expires=" + date.toUTCString();
+      document.cookie = name + "=" + value + ";" + expires + ";path=/";
+    }
+
+    function getCookie(name) {
+      const nameEq = name + "=";
+      const ca = document.cookie.split(';');
+      for (let i = 0; i < ca.length; i++) {
+        let c = ca[i].trim();
+        if (c.indexOf(nameEq) == 0) return c.substring(nameEq.length, c.length);
+      }
+      return "";
+    }
+
+    function deleteCookie(name) {
+      document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/";
+    }
+
+    // Authentication State Changed Listener
     onAuthStateChanged(auth, (user) => {
       if (user) {
         userStatus.textContent = `Welcome, ${user.displayName}`;
         loginBtn.style.display = 'none';
         logoutBtn.style.display = 'block';
+        setCookie("userLoggedIn", "true", 7); // Store cookie for 7 days
       } else {
         userStatus.textContent = 'You are not logged in.';
         loginBtn.style.display = 'block';
         logoutBtn.style.display = 'none';
+        deleteCookie("userLoggedIn");
       }
     });
 
+    // Login Button
     loginBtn.addEventListener("click", async () => {
       const provider = new GithubAuthProvider();
       try {
         const result = await signInWithPopup(auth, provider);
         const user = result.user;
         userStatus.textContent = `Welcome, ${user.displayName}`;
+        setCookie("userLoggedIn", "true", 7); // Store cookie for 7 days
       } catch (error) {
         console.error("Login error:", error.message);
         userStatus.textContent = "Login failed. Please try again.";
       }
     });
 
+    // Logout Button
     logoutBtn.addEventListener("click", async () => {
       try {
         await signOut(auth);
         userStatus.textContent = "You have logged out.";
+        deleteCookie("userLoggedIn");
       } catch (error) {
         console.error("Logout error:", error.message);
         userStatus.textContent = "Logout failed. Please try again.";
       }
     });
+
+    // Check login status from cookie on page load
+    window.onload = function() {
+      if (getCookie("userLoggedIn") === "true") {
+        loginBtn.style.display = "none";
+        logoutBtn.style.display = "block";
+        userStatus.textContent = "Welcome back!";
+      }
+    };
   </script>
 
 </body>
