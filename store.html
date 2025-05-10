@@ -149,16 +149,9 @@
     <p style="font-size: 1.1rem; max-width: 600px; margin: 0 auto 30px;">
       Survive the undead with my custom Minecraft 1.19.2 Zombie Apocalypse Modpack! Includes guns, survival mechanics, and more. Optimized for mobile-friendly recording and gameplay.
     </p>
-
-    <!-- Free Download Button (Visible only when logged in) -->
-    <div id="download-section" style="margin-top: 30px;">
-      <a id="download-btn"
-         href="https://cdn.ko-fi.com/cdn/useruploads/post/5e83acf92d_zombie_apocalypse_modpack.zip"
-         target="_blank"
-         style="display: none; background-color: #4CAF50; color: white; padding: 16px 32px; font-size: 1.2rem; font-weight: bold; border-radius: 10px; text-decoration: none;">
-        Download Now (Free)
-      </a>
-    </div>
+    <a href="https://ko-fi.com/s/5e83acf92d" target="_blank" class="button" style="background-color: #4CAF50; color: white; padding: 16px 32px; font-size: 1.2rem; font-weight: bold; border-radius: 10px; text-decoration: none;">
+      Download Modpack for Free
+    </a>
   </section>
 
   <footer>
@@ -198,19 +191,16 @@
     const loginBtn = document.getElementById("login-btn");
     const logoutBtn = document.getElementById("logout-btn");
     const userInfo = document.getElementById("user-info");
-    const downloadBtn = document.getElementById("download-btn");
 
     onAuthStateChanged(auth, (user) => {
       if (user) {
         userInfo.textContent = `Hello, ${user.displayName}`;
         loginBtn.style.display = "none";
         logoutBtn.style.display = "inline-block";
-        downloadBtn.style.display = "inline-block";
       } else {
         userInfo.textContent = "Not logged in";
         loginBtn.style.display = "inline-block";
         logoutBtn.style.display = "none";
-        downloadBtn.style.display = "none";
       }
     });
 
@@ -229,7 +219,6 @@
 
   <!-- Cookies Consent Script -->
   <script>
-    // Cookies Consent
     window.onload = function() {
       if (!document.cookie.split(';').some((item) => item.trim().startsWith('cookies_accepted='))) {
         let consentBanner = document.createElement('div');
@@ -242,7 +231,7 @@
         document.body.appendChild(consentBanner);
 
         document.getElementById('accept-cookies').addEventListener('click', function() {
-          document.cookie = "cookies_accepted=true; max-age=" + 60 * 60 * 24 * 365; // 1 year
+          document.cookie = "cookies_accepted=true; max-age=" + 60 * 60 * 24 * 365;
           consentBanner.style.display = 'none';
         });
       }
