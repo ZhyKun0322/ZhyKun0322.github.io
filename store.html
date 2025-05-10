@@ -217,5 +217,27 @@
     };
   </script>
 
+  <!-- Cookies Consent Script -->
+  <script>
+    // Cookies Consent
+    window.onload = function() {
+      if (!document.cookie.split(';').some((item) => item.trim().startsWith('cookies_accepted='))) {
+        let consentBanner = document.createElement('div');
+        consentBanner.innerHTML = `
+          <div style="position: fixed; bottom: 10px; left: 10px; right: 10px; background-color: #333; color: white; padding: 10px; text-align: center; font-size: 14px; z-index: 1000;">
+            We use cookies to improve your experience. By using this site, you agree to our use of cookies.
+            <button id="accept-cookies" style="background-color: #4CAF50; color: white; border: none; padding: 5px 10px; cursor: pointer; margin-left: 10px;">Accept</button>
+          </div>
+        `;
+        document.body.appendChild(consentBanner);
+
+        document.getElementById('accept-cookies').addEventListener('click', function() {
+          document.cookie = "cookies_accepted=true; max-age=" + 60 * 60 * 24 * 365; // 1 year
+          consentBanner.style.display = 'none';
+        });
+      }
+    }
+  </script>
+
 </body>
 </html>
